@@ -35,5 +35,18 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
 
+      # Build Debug APK
+      - name: Build Debug APK
+        run: ./gradlew assembleDebug
+
+      # Upload the APK as an artifact
+      - name: Upload Debug APK
+        uses: actions/upload-artifact@v3
+        with:
+          name: debug-apk
+          path: app/build/outputs/apk/debug/app-debug.apk
+
+      
+
       
       
