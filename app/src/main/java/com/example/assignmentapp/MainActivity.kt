@@ -1,5 +1,6 @@
 package com.example.assignmentapp
 
+
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -47,7 +48,7 @@ fun DailySuggester(modifier: Modifier = Modifier) {
         verticalArrangement = Arrangement.Center
     ){
         //User Input Text Field
-        OutlinedTextField(
+        TextField(
             value = userInput,
             onValueChange = {
                 userInput =it
@@ -94,6 +95,7 @@ fun DailySuggester(modifier: Modifier = Modifier) {
                     errorMessage =""
                 }else if (input == "after dinner") {
                     suggestionMessage = "Leave a thoughtful comment on a friend's post."
+                    errorMessage =""
                 }else {
                     suggestionMessage =""
                     errorMessage = "Error: Enter morning, mid-morning,afternoon ,afternoon snack time, etc."
