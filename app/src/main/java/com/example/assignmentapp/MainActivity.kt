@@ -29,14 +29,14 @@ class MainActivity : ComponentActivity() {
         setContent {
             AssignmentAppTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    DailySuggestor(modifier = Modifier.padding(innerPadding))
+                    DailySuggester(modifier = Modifier.padding(innerPadding))
                 }
             }
         }
     }
 }
 @Composable
-fun DailySuggestor(modifier: Modifier = Modifier) {
+fun DailySuggester(modifier: Modifier = Modifier) {
     var userInput by remember { mutableStateOf("") }
     var suggestionMessage by remember {mutableStateOf("")}
     var errorMessage by remember {mutableStateOf("")}
@@ -100,6 +100,30 @@ fun DailySuggestor(modifier: Modifier = Modifier) {
                 }
             }) {
                 Text("Submit")
+            }
+            //Adding a reset button
+            OutlinedButton(onClick = {
+                userInput =""
+                suggestionMessage =""
+                errorMessage =""
+            }) {
+                Text("Reset")
+            }
+        }
+        Spacer(modifier = Modifier.height(24.dp))
+
+        //Suggestion Display if-else
+        if (suggestionMessage.isNotEmpty()) {
+            Card(
+                colors = CardDefaults.cardColors(
+                    containerColor = MaterialTheme.colorScheme.secondaryContainer
+                )
+            ){
+                Text(
+                    text = suggestionMessage,
+                    modifier = Modifier.padding(16.dp),
+                    style = MaterialTheme.typography.bodyLarge
+                )
             }
         }
     }
