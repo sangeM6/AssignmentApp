@@ -5,7 +5,7 @@ This Android Application was built using Kotlin and Jetpack Compose.
 The application asks for the time of day from the user, checks if the input is valid or not and provides feedback based on it.
 
 ## Purpose of the Application
-The purpose of this app is to allow users to enter login details and check if the information is correct.
+The purpose of this app is to allow users to enter the time of day and checks if the information is correct.
 This application was created to practice conditional statements, input validation, and basic Android development.
 
 ## Features
