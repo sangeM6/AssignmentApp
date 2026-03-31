@@ -23,6 +23,8 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.*
 import androidx.compose.material3.*
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.graphics.Color
+
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,16 +41,23 @@ class MainActivity : ComponentActivity() {
 }
 @Composable
 fun DailySuggestionHeading() {
-    Text(
-        text = "Daily Suggester App",
-        fontSize = 24.sp,
-        fontWeight = FontWeight.Bold,
-        modifier = Modifier.fillMaxWidth().padding(16.dp)
-    )
+        Text(
+            text = "Daily Suggester App",
+            fontSize = 24.sp,
+            fontWeight = FontWeight.Bold,
+            modifier = Modifier.fillMaxWidth().padding(16.dp),
+            color = Color.Gray ,
+        )
+
 }
 @Composable
 fun DailySuggester(modifier: Modifier = Modifier) {
-    DailySuggestionHeading()
+    Column(modifier = Modifier.fillMaxSize()) {
+        Spacer(modifier = Modifier.height(150.dp))
+
+        DailySuggestionHeading()
+    }
+
     var userInput by remember { mutableStateOf("") }
     var suggestionMessage by remember {mutableStateOf("")}
     var errorMessage by remember {mutableStateOf("")}
