@@ -17,10 +17,12 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.assignmentapp.ui.theme.AssignmentAppTheme
 import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.*
 import androidx.compose.material3.*
+import androidx.compose.ui.text.font.FontWeight
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,7 +38,17 @@ class MainActivity : ComponentActivity() {
     }
 }
 @Composable
+fun DailySuggestionHeading() {
+    Text(
+        text = "Daily Suggester App",
+        fontSize = 24.sp,
+        fontWeight = FontWeight.Bold,
+        modifier = Modifier.fillMaxWidth().padding(16.dp)
+    )
+}
+@Composable
 fun DailySuggester(modifier: Modifier = Modifier) {
+    DailySuggestionHeading()
     var userInput by remember { mutableStateOf("") }
     var suggestionMessage by remember {mutableStateOf("")}
     var errorMessage by remember {mutableStateOf("")}
